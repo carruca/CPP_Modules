@@ -1,10 +1,9 @@
 #include <iostream>
-#include <ctype.h>
 
 void	print_uppercase(char *str)
 {
 	while (*str)
-		std::cout << (char)toupper(*(str++));
+		std::cout << (char)std::toupper(*(str++));
 }
 
 int main(int argc, char **argv)
