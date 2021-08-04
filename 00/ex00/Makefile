@@ -4,13 +4,13 @@ SRC = megaphone.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CFLAGS = -Wall -Wextra -Werror
-++ = clang++
+CXX = clang++
 RM = rm
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(++) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	$(RM) $(OBJ)
