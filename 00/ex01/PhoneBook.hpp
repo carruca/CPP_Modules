@@ -7,7 +7,7 @@ class	PhoneBook {
 
 public:
 
-	int		pos;
+	int		size;
 
 	PhoneBook(void);
 	~PhoneBook(void);

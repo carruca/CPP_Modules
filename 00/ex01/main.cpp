@@ -15,7 +15,7 @@ int main(void)
 		if (cmd.compare("EXIT") == 0)
 			break ;
 		else if (cmd.compare("ADD") == 0)
-			pb.setContact();
+			pb.add();
 		else if (cmd.compare("SEARCH") == 0)
 			std::cout << "Find a registred contact\n";
 	}
