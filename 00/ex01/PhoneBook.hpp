@@ -7,8 +7,6 @@ class	PhoneBook {
 
 public:
 
-	int		size;
-
 	PhoneBook(void);
 	~PhoneBook(void);
 
@@ -20,6 +18,7 @@ public:
 
 private:
 
+	int	_size;
 	Contact	_contact[8];
 
 };

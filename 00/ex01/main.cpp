@@ -13,7 +13,7 @@ int main(void)
 		std::cout << "phonebook: ";
 		std::cin >> cmd;
 		if (cmd.compare("EXIT") == 0)
-			break ;
+			pb.exit();
 		else if (cmd.compare("ADD") == 0)
 			pb.add();
 		else if (cmd.compare("SEARCH") == 0)
