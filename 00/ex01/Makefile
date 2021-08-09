@@ -1,9 +1,11 @@
 NAME = phonebook
 
-SRC = main.cpp
+SRC = main.cpp \
+      PhoneBook.cpp
 OBJ = $(SRC:.cpp=.o)
+INC = -I.
 
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror $(INC)
 CXX = clang++
 RM = rm -f
 
