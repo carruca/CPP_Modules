@@ -29,7 +29,7 @@ void	PhoneBook::setContact(void) {
 
 	std::string	input;
 
-	if (this->contact[0].get_first_name().empty())
+	if (this->_contact[0].get_first_name().empty())
 	{
 		std::cout << "Please, input a new contact's information.\nFirst name: ";
 		std::cin >> input;
