@@ -7,20 +7,20 @@ class	PhoneBook {
 
 public:
 
+	int		pos;
+
 	PhoneBook(void);
 	~PhoneBook(void);
 
 	void	exit(void);
 	void	add(void);
 	void	search(void);
-
 	Contact	getContact(void) const;
 	void	setContact(void);
 
-
 private:
 
-	Contact	pb[8];
+	Contact	_contact[8];
 
 };
 

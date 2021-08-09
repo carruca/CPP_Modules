@@ -14,17 +14,6 @@ void	PhoneBook::exit(void) {
 }
 
 void	PhoneBook::add(void) {
-
-	std::cout << "Please, input a new contact's information.\nFirst name: ";
-	std::cin >> this->pb[0].first_name;
-	std::cout << "Last name: ";
-	std::cin >> this->pb[0].last_name;
-	std::cout << "Nickname: ";
-	std::cin >> this->pb[0].nickname;
-	std::cout << "Phone number: ";
-	std::cin >> this->pb[0].phone_number;
-	std::cout << "Darkest secret: ";
-	std::cin >> this->pb[0].darkest_secret;
 	return ;
 }
 
@@ -33,9 +22,30 @@ void	PhoneBook::search(void) {
 }
 
 Contact	PhoneBook::getContact(void) const {
-	return this->pb[0];
+	return this->_contact[0];
 }
 
 void	PhoneBook::setContact(void) {
+
+	std::string	input;
+
+	if (this->contact[0].get_first_name().empty())
+	{
+		std::cout << "Please, input a new contact's information.\nFirst name: ";
+		std::cin >> input;
+		this->_contact[0].set_first_name(input);
+		std::cout << "Last name: ";
+		std::cin >> input;
+		this->_contact[0].set_last_name(input);
+		std::cout << "Nickname: ";
+		std::cin >> input;
+		this->_contact[0].set_nickname(input);
+		std::cout << "Phone number: ";
+		std::cin >> input;
+		this->_contact[0].set_phone_number(input);
+		std::cout << "Darkest secret: ";
+		std::cin >> input;
+		this->_contact[0].set_darkest_secret(input);
+	}
 	return ;
 }

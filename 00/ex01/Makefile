@@ -1,7 +1,8 @@
 NAME = phonebook
 
 SRC = main.cpp \
-      PhoneBook.cpp
+      PhoneBook.cpp \
+	  Contact.cpp
 OBJ = $(SRC:.cpp=.o)
 INC = -I.
 
@@ -19,6 +20,9 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+
+tag:
+	ctags $(SRC) PhoneBook.hpp Contact.hpp
 
 re: fclean all
 
