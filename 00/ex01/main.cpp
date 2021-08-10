@@ -10,14 +10,14 @@ int main(void)
 
 	while (1)
 	{
-		std::cout << "phonebook: ";
+		std::cout << "Please, input a new command: ";
 		std::cin >> cmd;
-		if (cmd.compare("EXIT") == 0)
+		if (cmd == "EXIT")
 			pb.exit();
-		else if (cmd.compare("ADD") == 0)
+		else if (cmd == "ADD")
 			pb.add();
-		else if (cmd.compare("SEARCH") == 0)
-			std::cout << "Find a registred contact\n";
+		else if (cmd == "SEARCH")
+			pb.search();
 	}
 	return (0);
 }

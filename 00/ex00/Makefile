@@ -10,7 +10,7 @@ RM = rm
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CFLAGS) $^ -o $@
 
 clean:
 	$(RM) $(OBJ)

@@ -5,62 +5,90 @@ Contact::Contact(void) {
 }
 
 Contact::~Contact(void) {
-
 	return ;
 }
 
-std::string	Contact::get_first_name(void) const {
+void	Contact::printFirstName(void) const {
+
+	std::cout << this->_first_name;
+	return ;
+}
+
+std::string	Contact::getFirstName(void) const {
 
 	return this->_first_name;
 }
 
-void	Contact::set_first_name(std::string input) {
+void	Contact::setFirstName(std::string input) {
 
 	this->_first_name = input;
 	return ;
 }
 
-std::string	Contact::get_last_name(void) const {
+void	Contact::printLastName(void) const {
+
+	std::cout << this->_last_name;
+	return ;
+}
+
+std::string	Contact::getLastName(void) const {
 
 	return this->_last_name;
 }
 
-void	Contact::set_last_name(std::string input) {
+void	Contact::setLastName(std::string input) {
 
 	this->_last_name = input;
 	return ;
 }
 
-std::string	Contact::get_nickname(void) const {
+void	Contact::printNickname(void) const {
+
+	std::cout << this->_nickname;
+	return ;
+}
+
+std::string	Contact::getNickname(void) const {
 
 	return this->_nickname;
 }
 
-void	Contact::set_nickname(std::string input) {
+void	Contact::setNickname(std::string input) {
 
 	this->_nickname = input;
 	return ;
 }
 
-std::string	Contact::get_phone_number(void) const {
+void	Contact::printPhoneNumber(void) const {
+
+	std::cout << this->_phone_number;
+	return ;
+}
+
+std::string	Contact::getPhoneNumber(void) const {
 
 	return this->_phone_number;
 }
 
-void	Contact::set_phone_number(std::string input) {
+void	Contact::setPhoneNumber(std::string input) {
 
 	this->_phone_number = input;
 	return ;
 }
 
-std::string	Contact::get_darkest_secret(void) const {
+void	Contact::printDarkestSecret(void) const {
+
+	std::cout << this->_darkest_secret;
+	return ;
+}
+
+std::string	Contact::getDarkestSecret(void) const {
 
 	return this->_darkest_secret;
 }
 
-void	Contact::set_darkest_secret(std::string input) {
+void	Contact::setDarkestSecret(std::string input) {
 
 	this->_darkest_secret = input;
 	return ;
 }
-

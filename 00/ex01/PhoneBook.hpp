@@ -13,6 +13,7 @@ public:
 	void	exit(void);
 	void	add(void);
 	void	search(void);
+	void	printContact(void) const;
 	Contact	getContact(void) const;
 	void	setContact(void);
 
