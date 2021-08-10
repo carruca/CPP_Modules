@@ -48,22 +48,20 @@ Contact	PhoneBook::getContact(void) const {
 
 void	PhoneBook::setContact(void) {
 
-	std::string	input;
-
 	std::cout << "Please, input a new contact's information.\nFirst name: ";
-	std::cin >> input;
-	this->_contact[this->_size].setFirstName(input);
+	std::cin >> this->input;
+	this->_contact[this->_size].setFirstName(this->input);
 	std::cout << "Last name: ";
-	std::cin >> input;
-	this->_contact[this->_size].setLastName(input);
+	std::cin >> this->input;
+	this->_contact[this->_size].setLastName(this->input);
 	std::cout << "Nickname: ";
-	std::cin >> input;
-	this->_contact[this->_size].setNickname(input);
+	std::cin >> this->input;
+	this->_contact[this->_size].setNickname(this->input);
 	std::cout << "Phone number: ";
-	std::cin >> input;
-	this->_contact[this->_size].setPhoneNumber(input);
+	std::cin >> this->input;
+	this->_contact[this->_size].setPhoneNumber(this->input);
 	std::cout << "Darkest secret: ";
-	std::cin >> input;
-	this->_contact[this->_size].setDarkestSecret(input);
+	std::cin >> this->input;
+	this->_contact[this->_size].setDarkestSecret(this->input);
 	return ;
 }
