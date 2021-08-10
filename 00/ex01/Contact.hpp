@@ -11,15 +11,15 @@ public:
 	Contact(void);
 	~Contact(void);
 
-	void		printFirstName(void) const;
+	void		printFirstName(void);
 	std::string	getFirstName(void) const;
 	void		setFirstName(std::string input);
 
-	void		printLastName(void) const;
+	void		printLastName(void);
 	std::string	getLastName(void) const;
 	void		setLastName(std::string input);
 
-	void		printNickname(void) const;
+	void		printNickname(void);
 	std::string	getNickname(void) const;
 	void		setNickname(std::string input);
 

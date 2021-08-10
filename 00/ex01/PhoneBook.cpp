@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : _size(0) {
@@ -29,15 +30,21 @@ void	PhoneBook::search(void) {
 	return ;
 }
 
-void	PhoneBook::printContact(void) const {
+void	PhoneBook::printContact(void) {
 
-	int	pos = 0;
-
-	while (pos < this->_size)
+	this->_pos = 0;
+	while (this->_pos < this->_size)
 	{
-		this->_contact[pos].printFirstName();
-		std::cout << std::endl;
-		pos++;
+		std::cout << "|" << std::setw(10);
+		std::cout << this->_pos;
+		std::cout << "|" << std::setw(10);
+		this->_contact[this->_pos].printFirstName();
+		std::cout << "|" << std::setw(10);
+		this->_contact[this->_pos].printLastName();
+		std::cout << "|" << std::setw(10);
+		this->_contact[this->_pos].printNickname();
+		std::cout << "." << std::endl;
+		this->_pos++;
 	}
 	return ;
 }

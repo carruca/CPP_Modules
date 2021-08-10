@@ -8,10 +8,13 @@ Contact::~Contact(void) {
 	return ;
 }
 
-void	Contact::printFirstName(void) const {
+void	Contact::printFirstName(void) {
 
 	if (this->_first_name.size())
-		std::cout << this->_first_name;
+	{
+//		this->_first_name.resize(10);
+		std::cout << this->_first_name.substr(0, 9);
+	}
 	return ;
 }
 
@@ -26,10 +29,13 @@ void	Contact::setFirstName(std::string input) {
 	return ;
 }
 
-void	Contact::printLastName(void) const {
+void	Contact::printLastName(void) {
 
 	if (this->_last_name.size())
-		std::cout << this->_last_name;
+	{
+//		this->_last_name.resize(10);
+		std::cout << this->_last_name.substr(0, 9);
+	}
 	return ;
 }
 
@@ -44,10 +50,13 @@ void	Contact::setLastName(std::string input) {
 	return ;
 }
 
-void	Contact::printNickname(void) const {
+void	Contact::printNickname(void) {
 
 	if (this->_nickname.size())
-		std::cout << this->_nickname;
+	{
+//		this->_nickname.resize(10);
+		std::cout << this->_nickname.substr(0, 9);
+	}
 	return ;
 }
 
