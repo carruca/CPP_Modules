@@ -30,8 +30,15 @@ void	PhoneBook::search(void) {
 }
 
 void	PhoneBook::printContact(void) const {
-	if (!(this->_contact[0].getFirstName().empty()))
-		std::cout << this->_contact[0].getFirstName() << std::endl;
+
+	int	pos = 0;
+
+	while (pos < this->_size)
+	{
+		this->_contact[pos].printFirstName();
+		std::cout << std::endl;
+		pos++;
+	}
 	return ;
 }
 

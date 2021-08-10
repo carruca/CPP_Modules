@@ -19,6 +19,7 @@ public:
 
 private:
 
+	std::string	input;
 	int	_size;
 	Contact	_contact[8];
 

@@ -10,7 +10,8 @@ Contact::~Contact(void) {
 
 void	Contact::printFirstName(void) const {
 
-	std::cout << this->_first_name;
+	if (this->_first_name.size())
+		std::cout << this->_first_name;
 	return ;
 }
 
@@ -27,7 +28,8 @@ void	Contact::setFirstName(std::string input) {
 
 void	Contact::printLastName(void) const {
 
-	std::cout << this->_last_name;
+	if (this->_last_name.size())
+		std::cout << this->_last_name;
 	return ;
 }
 
@@ -44,7 +46,8 @@ void	Contact::setLastName(std::string input) {
 
 void	Contact::printNickname(void) const {
 
-	std::cout << this->_nickname;
+	if (this->_nickname.size())
+		std::cout << this->_nickname;
 	return ;
 }
 
@@ -61,7 +64,8 @@ void	Contact::setNickname(std::string input) {
 
 void	Contact::printPhoneNumber(void) const {
 
-	std::cout << this->_phone_number;
+	if (this->_phone_number.size())
+		std::cout << this->_phone_number;
 	return ;
 }
 
@@ -78,7 +82,8 @@ void	Contact::setPhoneNumber(std::string input) {
 
 void	Contact::printDarkestSecret(void) const {
 
-	std::cout << this->_darkest_secret;
+	if (this->_darkest_secret.size())
+		std::cout << this->_darkest_secret;
 	return ;
 }
 
