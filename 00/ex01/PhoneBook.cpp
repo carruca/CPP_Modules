@@ -2,7 +2,7 @@
 #include <iomanip>
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void) : _size(0) {
+PhoneBook::PhoneBook(void) : _size(0), _oldest(0) {
 	return ;
 }
 
@@ -18,9 +18,19 @@ void	PhoneBook::exit(void) {
 
 void	PhoneBook::add(void) {
 
-	this->setContact();
-	if (this->_size < 7)
+	if (this->_size < 8)
+	{
+		this->setContact(this->_size);
 		this->_size++;
+	}
+	else
+	{
+		this->setContact(this->_oldest);
+		if (this->_oldest < 7)
+			this->_oldest++;
+		else
+			this->_oldest = 0;
+	}
 	return ;
 }
 
@@ -78,26 +88,22 @@ void	PhoneBook::printContactTable(void) {
 	return ;
 }
 
-Contact	PhoneBook::getContact(void) const {
-	return this->_contact[this->_size];
-}
-
-void	PhoneBook::setContact(void) {
+void	PhoneBook::setContact(int index) {
 
 	std::cout << "Please, input a new contact's information.\nFirst name: ";
 	std::cin >> this->_input;
-	this->_contact[this->_size].setFirstName(this->_input);
+	this->_contact[index].setFirstName(this->_input);
 	std::cout << "Last name: ";
 	std::cin >> this->_input;
-	this->_contact[this->_size].setLastName(this->_input);
+	this->_contact[index].setLastName(this->_input);
 	std::cout << "Nickname: ";
 	std::cin >> this->_input;
-	this->_contact[this->_size].setNickname(this->_input);
+	this->_contact[index].setNickname(this->_input);
 	std::cout << "Phone number: ";
 	std::cin >> this->_input;
-	this->_contact[this->_size].setPhoneNumber(this->_input);
+	this->_contact[index].setPhoneNumber(this->_input);
 	std::cout << "Darkest secret: ";
 	std::cin >> this->_input;
-	this->_contact[this->_size].setDarkestSecret(this->_input);
+	this->_contact[index].setDarkestSecret(this->_input);
 	return ;
 }

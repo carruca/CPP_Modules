@@ -16,14 +16,14 @@ public:
 
 	void		printContact(void);
 	void		printContactTable(void);
-	Contact		getContact(void) const;
-	void		setContact(void);
+	void		setContact(int index);
 
 private:
 
 	std::string	_input;
 	int			_index;
 	int			_size;
+	int			_oldest;
 	int			_pos;
 	Contact		_contact[8];
 
