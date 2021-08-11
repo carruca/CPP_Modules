@@ -8,10 +8,12 @@ Contact::~Contact(void) {
 	return ;
 }
 
-void	Contact::printFirstName(void) {
+void	Contact::printFirstName(int truncated) {
 
-	if (this->_first_name.size())
-		std::cout << this->_first_name.substr(0, 9);
+	if (truncated && this->_first_name.size() > 10)
+		std::cout << this->_first_name.substr(0, 9) + '.';
+	else if (this->_first_name.size())
+		std::cout << this->_first_name;
 	return ;
 }
 
@@ -26,10 +28,12 @@ void	Contact::setFirstName(std::string input) {
 	return ;
 }
 
-void	Contact::printLastName(void) {
+void	Contact::printLastName(int truncated) {
 
-	if (this->_last_name.size())
-		std::cout << this->_last_name.substr(0, 9);
+	if (truncated && this->_last_name.size() > 10)
+		std::cout << this->_last_name.substr(0, 9) + '.';
+	else if (this->_last_name.size())
+		std::cout << this->_last_name;
 	return ;
 }
 
@@ -44,10 +48,12 @@ void	Contact::setLastName(std::string input) {
 	return ;
 }
 
-void	Contact::printNickname(void) {
+void	Contact::printNickname(int truncated) {
 
-	if (this->_nickname.size())
-		std::cout << this->_nickname.substr(0, 9);
+	if (truncated && this->_nickname.size() > 10)
+		std::cout << this->_nickname.substr(0, 9) + '.';
+	else if (this->_nickname.size())
+		std::cout << this->_nickname;
 	return ;
 }
 
