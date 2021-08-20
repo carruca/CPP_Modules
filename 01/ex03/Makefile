@@ -1,4 +1,4 @@
-NAME = violence
+NAME = attack
 
 SRC = main.cpp \
 	  Weapon.cpp \

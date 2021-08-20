@@ -15,8 +15,8 @@ public:
 
 private:
 
-	Weapon		&_weapon;
 	std::string	_name;
+	Weapon		&_weapon;
 
 	HumanA( void );
 
