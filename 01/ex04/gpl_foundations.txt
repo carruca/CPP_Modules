@@ -1,0 +1,9 @@
+Nobody should be restricted by the software they use.
+There are four freedoms that every user should have:
+
+The freedom to use the software for any purpose,
+The freedom to change the software to suit your needs,
+The freedom to share the software with your friends and neighbors, and
+The freedom to share the changes you make.
+
+When a program offers users all of these freedoms, we call it free software.
