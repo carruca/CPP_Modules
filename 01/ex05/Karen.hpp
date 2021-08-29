@@ -3,21 +3,6 @@
 
 # include <string>
 
-class	Comment	{
-
-public:
-
-	Comment( std::string name, void (*f)() );
-	~Comment( void );
-
-private:
-
-	std::string	_name;
-	void		(*f)();
-
-	Comment( void );
-};
-
 class	Karen {
 
 public:
@@ -28,6 +13,8 @@ public:
 	void	complain( std::string level );
 	
 private:
+
+	void	(Karen::*f[4])( void );
 
 	void	debug( void );
 	void	info( void );

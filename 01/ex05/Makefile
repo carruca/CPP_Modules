@@ -1,6 +1,7 @@
 NAME = karen
 
-SRC = main.cpp
+SRC = main.cpp \
+	  Karen.cpp
 
 OBJ = $(SRC:.cpp=.o)
 INC = -I.
