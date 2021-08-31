@@ -20,8 +20,8 @@ void	Karen::complain( std::string level ) {
 
 	std::string	lvls[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
-	for (int pos = 0; pos < 4; pos++)
-	{
+	for (int pos = 0; pos < 4; pos++) {
+
 		if (lvls[pos] == level)
 			(this->*f[pos])();
 	}
