@@ -6,16 +6,19 @@ class	Fixed {
 public:
 
 	Fixed( void );
-	Fixed( Fixed const &copy );
+	Fixed( Fixed const &src );
 	~Fixed( void );
-	Fixed	&operator= ( Fixed const &fixed);
 
-	int		getRawBits( void );
+	Fixed	&operator=( Fixed const &rhs );
+
+	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
+
 
 private:
 
-	int					_value;
+	int		_rawBits;
+
 	static int const	_fraction;
 
 };
