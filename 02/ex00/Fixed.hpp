@@ -19,7 +19,7 @@ private:
 
 	int		_rawBits;
 
-	static int const	_fraction;
+	static int const	_fractBits;
 
 };
 
