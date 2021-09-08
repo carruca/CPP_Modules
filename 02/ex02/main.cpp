@@ -37,7 +37,10 @@ int	main( void ) {
 	std::cout << g++ << std::endl;
 	std::cout << g << std::endl;
 
-//	std::cout << Fixed::max( a, b ) << std::endl;
+	Fixed	h;
+
+	std::cout << "max(b, h) = " << Fixed::max( b, h ) << std::endl;
+	std::cout << "min(h, b) = " << Fixed::min( b, h ) << std::endl;
 
 	return 0;
 }

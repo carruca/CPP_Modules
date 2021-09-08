@@ -129,13 +129,13 @@ Fixed	Fixed::operator/( Fixed const &rhs ) const {
 
 Fixed	&Fixed::operator++( void ) {
 
-	this->setRawBits( this->toFloat() + 1 );
+	this->_rawBits++;
 	return *this;
 }
 
 Fixed	&Fixed::operator--( void ) {
 
-	this->setRawBits( this->toInt() - 1 );
+	this->_rawBits--;
 	return *this;
 }
 
@@ -143,6 +143,7 @@ Fixed	Fixed::operator++( int ) {
 
 	Fixed	copy( *this );
 
+	operator++();
 	return copy;
 }
 
@@ -150,7 +151,28 @@ Fixed	Fixed::operator--( int ) {
 
 	Fixed	copy( *this );
 
+	operator--();
 	return copy;
+}
+
+Fixed	&Fixed::min( Fixed &lhs, Fixed &rhs ) {
+
+	return (rhs < lhs) ? rhs : lhs;
+}
+
+Fixed const	&Fixed::min( Fixed const &lhs, Fixed const &rhs ) {
+
+	return (rhs < lhs) ? rhs : lhs;
+}
+
+Fixed	&Fixed::max( Fixed &lhs, Fixed &rhs ) {
+
+	return (lhs < rhs) ? rhs : lhs;
+}
+
+Fixed const	&Fixed::max( Fixed const &lhs, Fixed const &rhs ) {
+
+	return (lhs < rhs) ? rhs : lhs;
 }
 
 std::ostream	&operator<<( std::ostream &o, Fixed const &rhs ) {
