@@ -101,30 +101,56 @@ bool	Fixed::operator!=( Fixed const &rhs ) const {
 
 Fixed	Fixed::operator+( Fixed const &rhs ) const {
 
-	Fixed addition( this->_rawBits + rhs.getRawBits() );
+	Fixed result( this->toFloat() + rhs.toFloat() );
 
-	return addition;
+	return result;
 }
 
 Fixed	Fixed::operator-( Fixed const &rhs ) const {
 
-	Fixed	subtraction( this->_rawBits - rhs.getRawBits() );
+	Fixed	result( this->toFloat() - rhs.toFloat() );
 
-	return subtraction;
+	return result;
 }
 
 Fixed	Fixed::operator*( Fixed const &rhs ) const {
 
-	Fixed	multiplication( this->_rawBits * rhs.getRawBits() );
+	Fixed	result( this->toFloat() * rhs.toFloat() );
 
-	return multiplication;
+	return result;
 }
 
 Fixed	Fixed::operator/( Fixed const &rhs ) const {
 
-	Fixed	division( this->_rawBits / rhs.getRawBits() );
+	Fixed	result( this->toFloat() / rhs.toFloat() );
 
-	return division;
+	return result;
+}
+
+Fixed	&Fixed::operator++( void ) {
+
+	this->setRawBits( this->toFloat() + 1 );
+	return *this;
+}
+
+Fixed	&Fixed::operator--( void ) {
+
+	this->setRawBits( this->toInt() - 1 );
+	return *this;
+}
+
+Fixed	Fixed::operator++( int ) {
+
+	Fixed	copy( *this );
+
+	return copy;
+}
+
+Fixed	Fixed::operator--( int ) {
+
+	Fixed	copy( *this );
+
+	return copy;
 }
 
 std::ostream	&operator<<( std::ostream &o, Fixed const &rhs ) {
