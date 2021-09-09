@@ -28,12 +28,12 @@ Point	&Point::operator=( Point const &rhs ) {
 	return *this;
 }
 
-Fixed const	Point::getX( void ) const {
+float	Point::getX( void ) const {
 
-	return this->_x;
+	return this->_x.toFloat();
 }
 
-Fixed const	Point::getY( void ) const {
+float	Point::getY( void ) const {
 
-	return this->_y;
+	return this->_y.toFloat();
 }

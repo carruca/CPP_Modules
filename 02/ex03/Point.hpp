@@ -14,8 +14,8 @@ public:
 
 	Point	&operator=( Point const &rhs );	
 
-	Fixed const	getX( void ) const;
-	Fixed const getY( void ) const;
+	float	getX( void ) const;
+	float	getY( void ) const;
 
 private:
 
