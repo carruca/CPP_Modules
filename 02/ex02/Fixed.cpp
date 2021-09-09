@@ -32,6 +32,8 @@ Fixed::~Fixed( void ) {
 
 Fixed	&Fixed::operator=( Fixed const &rhs ) {
 
+	if (this == &rhs)
+		return *this;
 	this->_rawBits = rhs.getRawBits();
 	return *this;
 }

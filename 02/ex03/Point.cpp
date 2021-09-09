@@ -23,7 +23,8 @@ Point::~Point( void ) {
 
 Point	&Point::operator=( Point const &rhs ) {
 
-	this->_x = rhs.getX();
+	if (this == &rhs)
+		return *this;
 	return *this;
 }
 
@@ -36,4 +37,3 @@ Fixed const	Point::getY( void ) const {
 
 	return this->_y;
 }
-
