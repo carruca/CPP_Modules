@@ -143,18 +143,18 @@ Fixed	&Fixed::operator--( void ) {
 
 Fixed	Fixed::operator++( int ) {
 
-	Fixed	copy( *this );
+	Fixed	old( *this );
 
 	operator++();
-	return copy;
+	return old;
 }
 
 Fixed	Fixed::operator--( int ) {
 
-	Fixed	copy( *this );
+	Fixed	old( *this );
 
 	operator--();
-	return copy;
+	return old;
 }
 
 Fixed	&Fixed::min( Fixed &lhs, Fixed &rhs ) {
