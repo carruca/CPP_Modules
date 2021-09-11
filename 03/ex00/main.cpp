@@ -2,8 +2,8 @@
 
 int	main( void ) {
 
-	ClapTrap	clap( "Bradley" );
-	ClapTrap	trap( "Tom" );
+	ClapTrap	clap( "Brick" );
+	ClapTrap	trap( "Lilith" );
 
 	clap.attack( trap.getName() );
 	clap.takeDamage( 5 );
