@@ -4,6 +4,11 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+void	leaks_check( void ) {
+
+	system( "leaks animals" );
+}
+
 int	main( void ) {
 
 	const Animal	*meta = new Animal();
@@ -30,5 +35,7 @@ int	main( void ) {
 	delete i;
 	delete j;
 	delete meta;
+	delete k;
+	delete gamma;
 	return 0;
 }
