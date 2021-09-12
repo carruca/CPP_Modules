@@ -15,10 +15,10 @@ DiamondTrap::DiamondTrap( DiamondTrap const &src ) {
 
 DiamondTrap::DiamondTrap( std::string name ) : _name( name ) {
 
-	this->ClapTrap::_name = name + "_clap_name";
-	this->FragTrap::_hitPoints = 100;
-	this->ScavTrap::_energyPoints = 50;
-	this->FragTrap::_attackDamage = 30;
+	ClapTrap::_name = name + "_clap_name";
+	FragTrap::_hitPoints = 100;
+	ScavTrap::_energyPoints = 50;
+	FragTrap::_attackDamage = 30;
 	std::cout << "DiamondTrap " << this->_name <<  " created" << std::endl;
 	return ;
 }
@@ -33,6 +33,7 @@ DiamondTrap	&DiamondTrap::operator=( DiamondTrap const &rhs ) {
 
 	if (this == &rhs)
 		return *this;
+	this->_name = rhs.getName();
 	ClapTrap::_name = rhs.getName() + "_clap_name";
 	FragTrap::_hitPoints = rhs.getHitPoints();
 	ScavTrap::_energyPoints = rhs.getEnergyPoints();
