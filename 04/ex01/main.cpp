@@ -11,19 +11,19 @@ void	leaks_check( void ) {
 int	main( void ) {
 
 	int		N = 5;
-	Animal	*ptr_array[N];
+	Animal	*ptrArray[N];
 
 	
 //	atexit( leaks_check );
 	for (int i = 0; i < N; i++) {
 
 		if (i % 2 == 0)
-			ptr_array[i] = new Dog();
+			ptrArray[i] = new Dog();
 		else
-			ptr_array[i] = new Cat();
+			ptrArray[i] = new Cat();
 	}
 
 	for (int i = 0; i < N; i++)
-		delete ptr_array[i];
+		delete ptrArray[i];
 	return 0;
 }
