@@ -3,7 +3,8 @@ NAME = interface
 SRC = main.cpp \
 	  AMateria.cpp \
 	  Ice.cpp \
-	  Cure.cpp
+	  Cure.cpp \
+	  ICharacter.cpp
 
 OBJ = $(SRC:.cpp=.o)
 INC = -I.
