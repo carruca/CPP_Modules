@@ -14,8 +14,10 @@ Character::Character( std::string const &name ) : name( name ) {
 
 Character::Character( Character const &src ) {
 
-	*this = src;
 	std::cout << "Copy Character constructor called" << std::endl;
+	*this = src;
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = src.inventory[i];
 	return ;
 }
 
@@ -30,6 +32,8 @@ Character	&Character::operator=( Character const &rhs ) {
 	std::cout << "Assignment AMateria operator called" << std::endl;
 	if (this == &rhs)
 		return *this;
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = rhs.inventory[i];
 	return *this;
 }
 
@@ -40,7 +44,7 @@ std::string const	&Character::getName( void ) const {
 
 void	Character::equip( AMateria *m ) {
 
-	for (int i = 0; i < 3; i++){
+	for (int i = 0; i < 4; i++){
 
 		if (this->inventory[i]){
 

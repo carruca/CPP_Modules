@@ -9,7 +9,7 @@ class	Character : public ICharacter {
 
 protected:
 
-	AMateria			*inventory[3];
+	AMateria			*inventory[4];
 	std::string const	name;
 
 public:
