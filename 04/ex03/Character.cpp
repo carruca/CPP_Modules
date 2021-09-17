@@ -1,12 +1,12 @@
 #include "Character.hpp"
 
-Character::Character( void ) {
+Character::Character( void ) : name( "Default" ){
 
 	std::cout << "Default Character constructor called" << std::endl;
 	return ;
 }
 
-Character::Character( std::string name ) {
+Character::Character( std::string const &name ) : name( name ) {
 
 	std::cout << "Parameter Character constructor called" << std::endl;
 	return ;
@@ -58,9 +58,9 @@ void	Character::unequip( int idx ) {
 	return ;
 }
 
-void	Character::use( int idx, Character &target ) {
+void	Character::use( int idx, ICharacter &target ) {
 
 	if (this->inventory[idx])
-		AMateria::use( target );
+		this->inventory[idx]->use( target );
 	return ;
 }

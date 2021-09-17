@@ -3,9 +3,11 @@
 
 # include <iostream>
 # include <string>
-# include "Character.hpp"
+# include "AMateria.hpp"
 
-class	ICharacter : public Character {
+class	AMateria;
+
+class	ICharacter {
 
 public:
 

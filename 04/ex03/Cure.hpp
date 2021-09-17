@@ -17,7 +17,7 @@ public:
 	Cure	&operator=( Cure const &rhs );
 
 	AMateria	*clone( void ) const;
-//	void		use( ICharacter &target );
+	void		use( ICharacter &target );
 };
 
 #endif
