@@ -1,17 +1,22 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "ICharacter.hpp"
+#include "Character.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
 void	leaks_check( void ) {
 
-	system( "leaks abstract" );
+	system( "leaks interface" );
 	return ;
 }
-
+/*
 int	main( void ) {
 
 	AMateria	*m1 = new Cure();
 	AMateria	*m2 = new Ice();
 
+	atexit( leaks_check );
 	std::cout << "First materia is " << m1->getType() << std::endl;
 	std::cout << "Second materia is " << m2->getType() << std::endl;
 
@@ -19,9 +24,11 @@ int	main( void ) {
 	delete m2;
 	return 0;
 }
-/*
+*/
 int main()
 {
+//	atexit( leaks_check );
+
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -44,4 +51,4 @@ int main()
 	delete src;
 
 	return 0;
-}*/
+}

@@ -7,6 +7,10 @@
 
 class	MateriaSource : public IMateriaSource {
 
+protected:
+
+	AMateria	*source[4];
+
 public:
 
 	MateriaSource( void );

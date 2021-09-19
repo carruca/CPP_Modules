@@ -3,27 +3,40 @@
 Character::Character( void ) : name( "Default" ){
 
 	std::cout << "Default Character constructor called" << std::endl;
+	bzero( this->inventory, sizeof(AMateria) );
 	return ;
 }
 
 Character::Character( std::string const &name ) : name( name ) {
 
 	std::cout << "Parameter Character constructor called" << std::endl;
+	bzero( this->inventory, sizeof(AMateria) );
 	return ;
 }
 
 Character::Character( Character const &src ) {
 
 	std::cout << "Copy Character constructor called" << std::endl;
+	for (int i = 0; i < 4; i++) {
+
+		if (this->inventory[i]) {
+
+			delete this->inventory[i];
+			this->inventory[i] = src.inventory[i]->clone();
+		}
+	}
 	*this = src;
-	for (int i = 0; i < 4; i++)
-		this->inventory[i] = src.inventory[i];
 	return ;
 }
 
 Character::~Character( void ) {
 
 	std::cout << "Default Character destructor called" << std::endl;
+	for (int i = 0; i < 4; i++) {
+
+		if (this->inventory[i])
+			delete this->inventory[i];
+	}
 	return ;
 }
 
@@ -32,8 +45,14 @@ Character	&Character::operator=( Character const &rhs ) {
 	std::cout << "Assignment AMateria operator called" << std::endl;
 	if (this == &rhs)
 		return *this;
-	for (int i = 0; i < 4; i++)
-		this->inventory[i] = rhs.inventory[i];
+	for (int i = 0; i < 4; i++) {
+
+		if (this->inventory[i]) {
+
+			delete this->inventory[i];
+			this->inventory[i] = rhs.inventory[i]->clone();
+		}
+	}
 	return *this;
 }
 
@@ -44,9 +63,9 @@ std::string const	&Character::getName( void ) const {
 
 void	Character::equip( AMateria *m ) {
 
-	for (int i = 0; i < 4; i++){
+	for (int i = 0; i < 4; i++) {
 
-		if (this->inventory[i]){
+		if (!this->inventory[i]) {
 
 			this->inventory[i] = m;
 			break;
@@ -58,7 +77,7 @@ void	Character::equip( AMateria *m ) {
 void	Character::unequip( int idx ) {
 
 	if (this->inventory[idx])
-		this->inventory[idx] = 0;
+		this->inventory[idx] = NULL;
 	return ;
 }
 
