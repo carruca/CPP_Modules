@@ -3,7 +3,9 @@ NAME = forms
 SRC = main.cpp \
 	  Bureaucrat.cpp \
 	  Form.cpp \
-	  ShrubberyCreationForm.cpp
+	  ShrubberyCreationForm.cpp \
+	  RobotomyRequestForm.cpp \
+	  PresidentialPardonForm.cpp
 
 OBJ = $(SRC:.cpp=.o)
 INC = -I.

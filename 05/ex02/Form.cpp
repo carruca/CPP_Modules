@@ -65,6 +65,33 @@ void	Form::beSigned( Bureaucrat const &signer ) {
 	return ;
 }
 
+void	Form::actionExecute( void ) const {
+
+	return ;
+}
+
+void	Form::execute( Bureaucrat const &executor ) const {
+
+	if (!this->_signed) {
+
+		std::cout << executor.getName() << " cannot execute " << this->getName() << " because ";
+		throw Form::AlreadySignedFormException();
+	}
+	else if (executor.getGrade() > this->_executeGrade) {
+
+		std::cout << executor.getName() << " cannot execute " << this->getName() << " because ";
+		throw Form::GradeTooLowException();
+	}
+	else
+		this->actionExecute();
+	return ;
+}
+
+const char	*Form::AlreadySignedFormException::what() const throw() {
+
+	return "form is not signed.";
+}
+
 const char	*Form::GradeTooHighException::what() const throw() {
 
 	return "grade is too high.";

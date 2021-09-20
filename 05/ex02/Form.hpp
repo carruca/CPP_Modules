@@ -31,11 +31,21 @@ public:
 
 	void				beSigned( Bureaucrat const &signer );
 
-	class	GradeTooHighException : public std::exception {
+	virtual void		actionExecute( void ) const;
+	void				execute( Bureaucrat const &executor ) const;
+
+	class	AlreadySignedFormException : public std::exception {
 
 	public:
 		
 		virtual const char	*what() const throw();
+	};
+
+	class	GradeTooHighException : public std::exception {
+
+	public:
+
+		virtual const char *what() const throw();
 	};
 
 	class	GradeTooLowException : public std::exception {

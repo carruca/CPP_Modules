@@ -1,55 +1,81 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main( void ) {
 
-	ShrubberyCreationForm	creation( "home" );
-/*
-	Bureaucrat	b( 150 );
-	Form		f( "piscine", 1, 1 );
+	ShrubberyCreationForm	home( "home" );
+	RobotomyRequestForm		campus( "campus" );
+	PresidentialPardonForm	escape( "escape" );
+	Bureaucrat				bob( 4 );
 
-	std::cout << f << std::endl;
-
+	std::cout << home << std::endl;
+	std::cout << campus << std::endl;
+	std::cout << escape << std::endl;
+	std::cout << bob << std::endl;
 	try {
 
-		Form	i( "piscine", 400, 12 );
-
-		std::cout << i << std::endl;
-	}
-	catch (Form::GradeTooHighException &e) {
-
-		std::cout << "form "<< e.what() << std::endl;
-	}
-	catch (Form::GradeTooLowException &e) {
-
-		std::cout << "form "<< e.what() << std::endl;
-	}
-
-	Form	j( "cursus", 150, 12 );
-
-	std::cout << j << std::endl;
-	try {
-
-		b.signForm(j);
+		bob.signForm( home );
 	}
 	catch (Form::GradeTooLowException &e) {
 
 		std::cout << e.what() << std::endl;
-	}*/
+	}
+	try {
 
-/*	
-	std::cout << "         &&& &&  & &&" << std::endl;
-	std::cout << "    && &\\/&\\|& ()|/ @, &&" << std::endl;
-	std::cout << "    &\\/(/&/&||/& /_/)_&/_&" << std::endl;
-	std::cout << "  &() &\\/&|()|/&\\/ '%\" & ()" << std::endl; 
-	std::cout << " &_\\_&&_\\ |& |&&/&__%_/_& &&" << std::endl;
-	std::cout << "&&   && & &| &| /& & % ()& /&&" << std::endl;
-	std::cout << " ()&_---()&\\&\\|&&-&&--%---()~" << std::endl;
-	std::cout << "            \\|||" << std::endl;
-	std::cout << "             |||" << std::endl;
-	std::cout << "             |||" << std::endl;
-	std::cout << "             |||" << std::endl;
-	std::cout << "       , -=-~  .-^- _" << std::endl;*/
+		home.execute( bob );
+	}
+	catch (Form::AlreadySignedFormException &e) {
+
+		std::cout << e.what() << std::endl;
+	}
+	catch (Form::GradeTooLowException &e) {
+
+		std::cout << e.what() << std::endl;
+	}
+
+	try {
+
+		bob.signForm( campus );
+	}
+	catch (Form::GradeTooLowException &e) {
+
+		std::cout << e.what() << std::endl;
+	}
+	try {
+
+		campus.execute( bob );
+	}
+	catch (Form::AlreadySignedFormException &e) {
+
+		std::cout << e.what() << std::endl;
+	}
+	catch (Form::GradeTooLowException &e) {
+
+		std::cout << e.what() << std::endl;
+	}
+
+	try {
+
+		bob.signForm( escape );
+	}
+	catch (Form::GradeTooLowException &e) {
+
+		std::cout << e.what() << std::endl;
+	}
+	try {
+
+		escape.execute( bob );
+	}
+	catch (Form::AlreadySignedFormException &e) {
+
+		std::cout << e.what() << std::endl;
+	}
+	catch (Form::GradeTooLowException &e) {
+
+		std::cout << e.what() << std::endl;
+	}
 	return 0;
 }

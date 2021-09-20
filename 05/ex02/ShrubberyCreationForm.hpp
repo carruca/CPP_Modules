@@ -13,8 +13,8 @@ public:
 	ShrubberyCreationForm( void );
 	ShrubberyCreationForm( std::string target );
 	~ShrubberyCreationForm( void );
-};
 
-std::ostream	&operator<<( std::ostream &o, ShrubberyCreationForm const &rhs );
+	void	actionExecute( void ) const;
+};
 
 #endif
