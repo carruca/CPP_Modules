@@ -25,6 +25,7 @@ public:
 	Form	&operator=( Form const &rhs );
 
 	std::string const	&getName( void ) const;
+	bool				getSigned( void ) const;
 	unsigned int		getSignGrade( void ) const;
 	unsigned int		getExecuteGrade( void ) const;
 

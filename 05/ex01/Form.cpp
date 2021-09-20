@@ -35,6 +35,11 @@ std::string const	&Form::getName( void ) const {
 	return this->_name;
 }
 
+bool	Form::getSigned( void ) const {
+
+	return this->_signed;
+}
+
 unsigned int	Form::getSignGrade( void ) const {
 
 	return this->_signGrade;

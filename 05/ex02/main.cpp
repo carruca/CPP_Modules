@@ -1,8 +1,11 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main( void ) {
 
+	ShrubberyCreationForm	creation( "home" );
+/*
 	Bureaucrat	b( 150 );
 	Form		f( "piscine", 1, 1 );
 
@@ -33,6 +36,20 @@ int	main( void ) {
 	catch (Form::GradeTooLowException &e) {
 
 		std::cout << e.what() << std::endl;
-	}
+	}*/
+
+/*	
+	std::cout << "         &&& &&  & &&" << std::endl;
+	std::cout << "    && &\\/&\\|& ()|/ @, &&" << std::endl;
+	std::cout << "    &\\/(/&/&||/& /_/)_&/_&" << std::endl;
+	std::cout << "  &() &\\/&|()|/&\\/ '%\" & ()" << std::endl; 
+	std::cout << " &_\\_&&_\\ |& |&&/&__%_/_& &&" << std::endl;
+	std::cout << "&&   && & &| &| /& & % ()& /&&" << std::endl;
+	std::cout << " ()&_---()&\\&\\|&&-&&--%---()~" << std::endl;
+	std::cout << "            \\|||" << std::endl;
+	std::cout << "             |||" << std::endl;
+	std::cout << "             |||" << std::endl;
+	std::cout << "             |||" << std::endl;
+	std::cout << "       , -=-~  .-^- _" << std::endl;*/
 	return 0;
 }
