@@ -30,7 +30,19 @@ int	main( void ) {
 		
 		std::cout << e.what() << std::endl;
 	}
-	b.incrementGrade();
+	std::cout << b << std::endl;
+	try {
+
+		b.incrementGrade();
+	}
+	catch (Bureaucrat::GradeTooHighException &e) {
+
+		std::cout << e.what() << std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException &e) {
+		
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << b << std::endl;
 
 	return 0;
