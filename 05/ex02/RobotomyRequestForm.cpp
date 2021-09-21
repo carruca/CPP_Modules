@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( void ) : Form( "robotomy request", 72, 45) {
+RobotomyRequestForm::RobotomyRequestForm( void ) : Form( "robotomy request", 72, 45, "deafult" ) {
 
 	std::cout << "Default RobotomyRequestForm constructor called" << std::endl;
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target ) : Form( target, 72, 45 ) {
+RobotomyRequestForm::RobotomyRequestForm( std::string target ) : Form( "robotomy request", 72, 45, target ) {
 
 	std::cout << "Parameter RobotomyRequestForm constructor called" << std::endl;
 	return ;
@@ -25,8 +25,8 @@ void	RobotomyRequestForm::actionExecute( void ) const {
 
 	std::cout << "rizzz..." << std::endl;
 	if (randomNb)
-		std::cout << this->getName() << " has been robotomied successfully." << std::endl;
+		std::cout << this->getTarget() << " has been robotomied successfully." << std::endl;
 	else
-		std::cout << "robotomy request to " << this->getName() << " has failed." << std::endl;
+		std::cout << "robotomy request to " << this->getTarget() << " has failed." << std::endl;
 	return ;
 }

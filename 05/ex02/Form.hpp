@@ -15,11 +15,12 @@ private:
 	bool				_signed;
 	unsigned int const	_signGrade;
 	unsigned int const	_executeGrade;
+	std::string	const	_target;
 
 public:
 
 	Form( void );
-	Form( std::string name, unsigned int signGrade, unsigned int executeGrade );
+	Form( std::string name, unsigned int signGrade, unsigned int executeGrade, std::string target );
 	~Form( void );
 
 	Form	&operator=( Form const &rhs );
@@ -28,6 +29,7 @@ public:
 	bool				getSigned( void ) const;
 	unsigned int		getSignGrade( void ) const;
 	unsigned int		getExecuteGrade( void ) const;
+	std::string const	&getTarget( void ) const;
 
 	void				beSigned( Bureaucrat const &signer );
 

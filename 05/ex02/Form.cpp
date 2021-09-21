@@ -1,12 +1,12 @@
 #include "Form.hpp"
 
-Form::Form( void ) : _name( "piscine" ), _signed( 0 ), _signGrade( 150 ), _executeGrade( 150 ) {
+Form::Form( void ) : _name( "piscine" ), _signed( 0 ), _signGrade( 150 ), _executeGrade( 150 ), _target( "deafult" ) {
 
 	std::cout << "Default Form constructor called" << std::endl;
 	return ;
 }
 
-Form::Form( std::string name, unsigned int signGrade, unsigned int executeGrade ) : _name( name ), _signed( 0 ), _signGrade( signGrade ), _executeGrade( executeGrade ) {
+Form::Form( std::string name, unsigned int signGrade, unsigned int executeGrade, std::string target ) : _name( name ), _signed( 0 ), _signGrade( signGrade ), _executeGrade( executeGrade ), _target( target ) {
 
 	std::cout << "Parameter Form constructor called" << std::endl;
 	if (signGrade > 150 || executeGrade > 150)
@@ -50,6 +50,11 @@ unsigned int	Form::getExecuteGrade( void ) const {
 	return this->_executeGrade;
 }
 
+std::string const	&Form::getTarget( void ) const {
+
+	return this->_target;
+}
+
 void	Form::beSigned( Bureaucrat const &signer ) {
 
 	if (signer.getGrade() > this->_signGrade) {
@@ -62,11 +67,6 @@ void	Form::beSigned( Bureaucrat const &signer ) {
 		this->_signed = 1;
 		std::cout << signer.getName() << " signs " << this->getName() << "." << std::endl;
 	}
-	return ;
-}
-
-void	Form::actionExecute( void ) const {
-
 	return ;
 }
 

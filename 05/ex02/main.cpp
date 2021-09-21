@@ -9,7 +9,7 @@ int	main( void ) {
 	ShrubberyCreationForm	home( "home" );
 	RobotomyRequestForm		campus( "campus" );
 	PresidentialPardonForm	escape( "escape" );
-	Bureaucrat				bob( 12 );
+	Bureaucrat				bob( 1 );
 
 	std::cout << home << std::endl;
 	std::cout << campus << std::endl;
@@ -60,18 +60,6 @@ int	main( void ) {
 	try {
 
 		bob.signForm( escape );
-	}
-	catch (Form::GradeTooLowException &e) {
-
-		std::cout << e.what() << std::endl;
-	}
-	try {
-
-		escape.execute( bob );
-	}
-	catch (Form::AlreadySignedFormException &e) {
-
-		std::cout << e.what() << std::endl;
 	}
 	catch (Form::GradeTooLowException &e) {
 
