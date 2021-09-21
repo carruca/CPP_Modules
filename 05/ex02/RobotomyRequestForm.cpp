@@ -20,7 +20,13 @@ RobotomyRequestForm::~RobotomyRequestForm( void ) {
 
 void	RobotomyRequestForm::actionExecute( void ) const {
 
-	std::cout << "rizzz" << std::endl;
-	std::cout << this->getName() << " has been robotomied successfully 50\% of the time" << std::endl;
+	srand(time(NULL));
+	int	randomNb = rand() % 2;
+
+	std::cout << "rizzz..." << std::endl;
+	if (randomNb)
+		std::cout << this->getName() << " has been robotomied successfully." << std::endl;
+	else
+		std::cout << "robotomy request to " << this->getName() << " has failed." << std::endl;
 	return ;
 }

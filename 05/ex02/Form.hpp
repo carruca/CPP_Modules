@@ -31,7 +31,7 @@ public:
 
 	void				beSigned( Bureaucrat const &signer );
 
-	virtual void		actionExecute( void ) const;
+	virtual void		actionExecute( void ) const = 0;
 	void				execute( Bureaucrat const &executor ) const;
 
 	class	AlreadySignedFormException : public std::exception {

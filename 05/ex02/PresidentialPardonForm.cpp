@@ -20,6 +20,6 @@ PresidentialPardonForm::~PresidentialPardonForm( void ) {
 
 void	PresidentialPardonForm::actionExecute( void ) const {
 
-	std::cout << this->getName() << " has been pardoned by Zafod Beeblebrox" << std::endl;
+	std::cout << this->getName() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 	return ;
 }

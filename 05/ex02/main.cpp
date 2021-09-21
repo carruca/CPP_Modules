@@ -9,7 +9,7 @@ int	main( void ) {
 	ShrubberyCreationForm	home( "home" );
 	RobotomyRequestForm		campus( "campus" );
 	PresidentialPardonForm	escape( "escape" );
-	Bureaucrat				bob( 4 );
+	Bureaucrat				bob( 12 );
 
 	std::cout << home << std::endl;
 	std::cout << campus << std::endl;
@@ -77,5 +77,6 @@ int	main( void ) {
 
 		std::cout << e.what() << std::endl;
 	}
+	bob.executeForm( escape );
 	return 0;
 }
