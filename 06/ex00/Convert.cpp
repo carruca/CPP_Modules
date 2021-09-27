@@ -35,26 +35,6 @@ Convert	&Convert::operator=( Convert const &rhs ) {
 	return *this;
 }
 
-char	Convert::getChar( void ) const {
-
-	return this->_char;
-}
-
-int	Convert::getInt( void ) const {
-
-	return this->_int;
-}
-
-float	Convert::getFloat( void ) const {
-
-	return this->_float;
-}
-
-double	Convert::getDouble( void ) const {
-
-	return this->_double;
-}
-
 bool	Convert::isChar( std::string input ) {
 
 	if ( input.size() == 1 && std::isprint( input[0] ) && !std::isdigit( input[0] ) ) {
