@@ -149,13 +149,15 @@ void	Convert::displayDouble( double d ) {
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	if ( d - static_cast<int>(d) == 0 )
-		std::cout << "float: " << d << ".0f" << std::endl;
+	if ( d < FLT_MIN || d > FLT_MAX )
+		std::cout << "float: impossible" << std::endl;
+	else if ( d - static_cast<int>(d) == 0 )
+		std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
 	else
-		std::cout << "float: " << d << "f" << std::endl;
+		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 	if ( d - static_cast<int>(d) == 0 )
-		std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
+		std::cout << "double: " << d << ".0" << std::endl;
 	else
-		std::cout << "double: " << static_cast<double>(d) << std::endl;
+		std::cout << "double: " << d << std::endl;
 	return ;
 }

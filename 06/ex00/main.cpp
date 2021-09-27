@@ -1,6 +1,3 @@
-#include <string>
-#include <iostream>
-#include <cctype>
 #include "Convert.hpp"
 
 int	main( int argc, char **argv ) {
