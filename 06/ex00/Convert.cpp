@@ -7,14 +7,13 @@ Convert::Convert( void ) {
 
 Convert::Convert( std::string input ) {
 
-	this->cmp[0] = &Convert::isChar;
-	this->cmp[1] = &Convert::isInt;
-	this->cmp[2] = &Convert::isFloat;
-	this->cmp[3] = &Convert::isDouble;
+	bool	(Convert::*f[])( std::string ) = { &Convert::isChar, &Convert::isInt, &Convert::isFloat, &Convert::isDouble };
 
-	for ( int idx = 0; idx < 4; idx++ )
-		if ( (this->*cmp[idx])( input ) )
+	for ( int idx = 0; idx < 4; idx++ ) {
+
+		if ( (this->*f[idx])( input ) )
 			break ;
+	}
 	return ;
 }
 
@@ -56,142 +55,127 @@ double	Convert::getDouble( void ) const {
 	return this->_double;
 }
 
-int	Convert::isChar( std::string input ) {
+bool	Convert::isChar( std::string input ) {
 
 	if ( input.size() == 1 && std::isprint( input[0] ) && !std::isdigit( input[0] ) ) {
 
-		this->convertChar( input[0] );
+		this->displayChar( input[0] );
 		return 1;
 	}
 	return 0;
 }
 
-int	Convert::isInt( std::string input ) {
+bool	Convert::isInt( std::string input ) {
 
-	std::string::iterator	it = input.begin();
+	try {
 
-	if ( *it == '-' || *it == '+' )
-		it++;
-	while ( it != input.end() ) {
-
-		if ( !std::isdigit(*it) )
+		if ( input.find( "." ) != std::string::npos )
 			return 0;
-		it++;
+		int	i = std::stoi( input );
+		this->displayInt( i );
 	}
-	this->convertInt( std::stoi( input ) );
+	catch ( std::exception &e ) {
+
+		return 0;
+	}
 	return 1;
 }
 
-int	Convert::isFloat( std::string input ) {
+bool	Convert::isFloat( std::string input ) {
 
-	std::string::iterator	it		= input.begin();
-	bool					point	= 0;
+	try {
 
-	if ( *it == '-' || *it == '+' )
-		it++;
-	while ( it != input.end() ) {
-
-		if ( *it == '.' )
-			point ^= 1;
-		else if ( point && *it == 'f' && ++it == input.end() ) {
-
-			this->convertFloat( std::stof( input ) );
-			return 1;
-		}
-		else if ( !isdigit(*it) )
-			break ;
-		it++;
+		if ( input.find( "f" ) == std::string::npos )
+			return 0;
+		float	f = std::stof( input );
+		this->displayFloat( f );
 	}
-	return 0;
+	catch ( std::exception ) {
+
+		return 0;
+	}
+	return 1;
 }
 
-int	Convert::isDouble( std::string input ) {
+bool	Convert::isDouble( std::string input ) {
 
-	std::string::iterator	it		= input.begin();
-	bool					point	= 0;
+	try {
 
-	if ( *it == '-' || *it == '+' )
-		it++;
-	while ( it != input.end() ) {
-
-		if ( *it == '.' )
-			point ^= 1;
-		else if ( point && it + 1 == input.end() ) {
-
-			this->convertFloat( std::stod( input ) );
-			return 1;
-		}
-		else if ( !isdigit(*it) )
-			break ;
-		it++;
+		double	d = std::stod( input );
+		this->displayDouble( d );
 	}
-	return 0;
+	catch ( std::exception &e ) {
+
+		return 0;
+	}
+	return 1;
 }
 
-void	Convert::convertChar( char c ) {
+void	Convert::displayChar( char c ) {
 
-	this->_char = c;
-	this->_int = static_cast<int>(c);
-	this->_float = static_cast<float>(c);
-	this->_double = static_cast<double>(c);
+	std::cout << "char: " << c << std::endl;
+	std::cout << "int: " << static_cast<int>(c) << std::endl;
+	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 	return ;
 }
 
-void	Convert::convertInt( int i ) {
+void	Convert::displayInt( int i ) {
 
-	this->_char = static_cast<char>(i);
-	this->_int = i;
-	this->_float = static_cast<float>(i);
-	this->_double = static_cast<double>(i);
+	if ( std::isprint( i ) )
+		std::cout << "char: " << static_cast<char>(i) << std::endl;
+	else if ( i >= CHAR_MIN && i <= CHAR_MAX )
+		std::cout << "char: No displayable" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
 	return ;
 }
 
-void	Convert::convertFloat( float f ) {
+void	Convert::displayFloat( float f ) {
 
-	if ( f >= CHAR_MIN && f <= CHAR_MAX )
-		this->_char = static_cast<char>(f);
+	if ( std::isprint( static_cast<int>(f) ) )
+		std::cout << "char: " << static_cast<char>(f) << std::endl;
+	else if ( f >= CHAR_MIN && f <= CHAR_MAX )
+		std::cout << "char: No displayable" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
 	if ( f >= INT_MIN && f <= INT_MAX )
-		this->_int = static_cast<int>(f);
-	this->_float = f;
-	this->_double = static_cast<double>(f);
+		std::cout << "int: " << static_cast<int>(f) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
+	if ( f - static_cast<int>(f) == 0 )
+		std::cout << "float: " << f << ".0f" << std::endl;
+	else
+		std::cout << "float: " << f << "f" << std::endl;
+	if ( f - static_cast<int>(f) == 0 )
+		std::cout << "double: " << static_cast<double>(f) << ".0" << std::endl;
+	else
+		std::cout << "double: " << static_cast<double>(f) << std::endl;
 	return ;
 }
 
-void	Convert::convertDouble( double d ) {
+void	Convert::displayDouble( double d ) {
 
-	if ( d >= CHAR_MIN && d <= CHAR_MAX )
-		this->_char = static_cast<char>(d);
+	if ( std::isprint( static_cast<int>(d) ) )
+		std::cout << "char: " << static_cast<char>(d) << std::endl;
+	else if ( d >= CHAR_MIN && d <= CHAR_MAX )
+		std::cout << "char: No displayable" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
 	if ( d >= INT_MIN && d <= INT_MAX )
-		this->_int = static_cast<char>(d);
-	if ( d >= FLT_MIN && d <= FLT_MAX )
-		this->_float = static_cast<float>(d);
-	this->_double = d;
+		std::cout << "int: " << static_cast<int>(d) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
+	if ( d - static_cast<int>(d) == 0 )
+		std::cout << "float: " << d << ".0f" << std::endl;
+	else
+		std::cout << "float: " << d << "f" << std::endl;
+	if ( d - static_cast<int>(d) == 0 )
+		std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
+	else
+		std::cout << "double: " << static_cast<double>(d) << std::endl;
 	return ;
-}
-
-std::ostream	&operator<<( std::ostream &o, Convert const &rhs ) {
-
-	if ( std::isprint( rhs.getChar() ) )
-		o << "char: " << rhs.getChar() << std::endl;
-	else if ( isnan( rhs.getFloat() ) || isinf( rhs.getFloat() )
-		|| rhs.getFloat() < CHAR_MIN || rhs.getFloat() > CHAR_MAX )
-		o << "char: impossible" << std::endl;
-	else
-		o << "char: No displayable" << std::endl;
-
-	if ( isnan( rhs.getFloat() ) || isinf( rhs.getFloat() )
-		|| rhs.getFloat() < INT_MIN || rhs.getFloat() > INT_MAX )
-		o << "int: impossible" << std::endl;
-	else
-		o << "int: " << rhs.getInt() << std::endl;
-	if ( rhs.getFloat() - static_cast<int>(rhs.getFloat()) != 0 )
-		o << "float: " << rhs.getFloat() << "f" << std::endl;
-	else
-		o << "float: " << rhs.getFloat() << ".0f" << std::endl;
-
-	if ( rhs.getDouble() - static_cast<int>(rhs.getDouble()) != 0 )
-		o << "double: " << rhs.getDouble();
-	else
-		o << "double: " << rhs.getDouble() << ".0";
-	return o;
 }

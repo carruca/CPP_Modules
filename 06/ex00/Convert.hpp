@@ -31,21 +31,17 @@ private:
 	float			_float;
 	double			_double;
 
-	int	(Convert::*cmp[4])( std::string input );
+	bool	isChar( std::string input );
+	bool	isInt( std::string input );
+	bool	isFloat( std::string input );
+	bool	isDouble( std::string input );
 
-	int		isChar( std::string input );
-	int		isInt( std::string input );
-	int		isFloat( std::string input );
-	int		isDouble( std::string input );
-
-	void	convertChar( char c );
-	void	convertInt( int i );
-	void	convertFloat( float f );
-	void	convertDouble( double d );
+	void	displayChar( char c );
+	void	displayInt( int i );
+	void	displayFloat( float f );
+	void	displayDouble( double d );
 
 	Convert( void );
 };
-
-std::ostream	&operator<<( std::ostream &o, Convert const &rhs );
 
 #endif

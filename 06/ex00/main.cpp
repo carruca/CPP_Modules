@@ -10,6 +10,6 @@ int	main( int argc, char **argv ) {
 
 	Convert	scalar( argv[1] );
 
-	std::cout << scalar << std::endl;
+//	std::cout << scalar << std::endl;
 	return 0;
 }
