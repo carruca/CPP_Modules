@@ -1,4 +1,4 @@
-NAME = scalar
+NAME = serial
 
 SRC = main.cpp \
 	  Convert.cpp
