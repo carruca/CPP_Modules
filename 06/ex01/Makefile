@@ -1,7 +1,6 @@
 NAME = serial
 
-SRC = main.cpp \
-	  Convert.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 INC = -I.
