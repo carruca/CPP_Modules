@@ -36,7 +36,7 @@ int	main( void ) {
 
 	std::cout << "Data ptr: " << dataPtr << std::endl;
 	raw = serialize( dataPtr );
-	std::cout << "Uint serial: " << raw << std::endl;
+	std::cout << "Uint ptr: " << raw << std::endl;
 	dataPtr2 = deserialize( raw );
 	std::cout << "Data ptr: " << dataPtr2 << std::endl;
 
