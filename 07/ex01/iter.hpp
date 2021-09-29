@@ -15,7 +15,7 @@ void	iter( T	*p, std::size_t lenght, void (*f)( T const & ) ) {
 }
 
 template< typename T >
-void	print( T const &target ) {
+void	display( T const &target ) {
 
 	std::cout << target << std::endl;
 	return ;
