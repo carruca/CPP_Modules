@@ -2,6 +2,8 @@
 # define ARRAY_HPP
 
 # include <cstddef>
+# include <iostream>
+# include <exception>
 
 template< typename T >
 class	Array {
@@ -16,18 +18,26 @@ public:
 	}
 	Array( Array const &src ) {
 
-		this->_size = src.size();
-		this->_head = new T[ this->_size ];
+		if ( this->_size != src.size() ) {
+
+			this->_head = nullptr;
+			this->_size = 0;
+			this->_head = new T[ src.size() ];
+			this->_size = src.size();
+		}
+		for ( std::size_t idx = 0; idx < this->_size; idx++ )
+			this->_head[ idx ] = src[ idx ];
 		*this = src;
 		return ;
 	}
 	~Array( void ) {
-	
-		delete [] this->_head;
+
+		if (this->_size > 0 )
+			delete [] this->_head;
 		return ;
 	}
 
-	unsigned int	size( void ) const { return this->_size; }
+	unsigned int		size( void ) const { return this->_size; }
 
 	Array	&operator=( Array const &rhs ) {
 
@@ -35,13 +45,31 @@ public:
 			return *this;
 		if ( this->_size != rhs.size() ) {
 
-			delete [] this->_head;
+			if (this->_size > 0 )
+				delete [] this->_head;
 			this->_head = nullptr;
 			this->_size = 0;
 			this->_head = new T[ rhs.size() ];
 			this->_size = rhs.size();
-			return *this;
 		}
+		for ( std::size_t idx = 0; idx < this->_size; idx++ )
+			this->_head[ idx ] = rhs[ idx ];
+		return *this;
+	}
+
+	T			&operator[]( std::size_t idx ) {
+
+			if (idx >= this->_size)
+				throw std::exception();
+			else
+			return this->_head[ idx ];
+	}
+	T const		&operator[]( std::size_t idx ) const {
+
+			if (idx >= this->_size)
+				throw std::exception();
+			else
+				return this->_head[ idx ];
 	}
 
 private:
