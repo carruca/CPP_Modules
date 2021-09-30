@@ -10,6 +10,5 @@ int	main( void ) {
 
 	Array<int>	a1( 4 );
 
-	atexit( leaks_check );
 	return 0;
 }
