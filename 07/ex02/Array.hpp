@@ -32,12 +32,11 @@ public:
 	}
 	~Array( void ) {
 
-		if ( this->_size > 0 )
-			delete [] this->_head;
+		delete [] this->_head;
 		return ;
 	}
 
-	unsigned int		size( void ) const { return this->_size; }
+	std::size_t		size( void ) const { return this->_size; }
 
 	Array	&operator=( Array const &rhs ) {
 
@@ -45,8 +44,7 @@ public:
 			return *this;
 		if ( this->_size != rhs.size() ) {
 
-			if (this->_size > 0 )
-				delete [] this->_head;
+			delete [] this->_head;
 			this->_head = nullptr;
 			this->_size = 0;
 			this->_head = new T[ rhs.size() ];
@@ -75,7 +73,7 @@ public:
 private:
 
 	T				*_head;
-	unsigned int	_size;
+	std::size_t		_size;
 };
 
 #endif
