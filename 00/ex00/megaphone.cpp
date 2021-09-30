@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 
 void	print_uppercase(char *str)
 {
