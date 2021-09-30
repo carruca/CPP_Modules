@@ -12,7 +12,7 @@ public:
 
 	Array( void ) : _head( nullptr ), _size( 0 ) {  }
 	Array( unsigned int n ) : _size( n ) {
-	
+
 		this->_head = new T[ n ];
 		return ;
 	}
@@ -32,7 +32,7 @@ public:
 	}
 	~Array( void ) {
 
-		if (this->_size > 0 )
+		if ( this->_size > 0 )
 			delete [] this->_head;
 		return ;
 	}
@@ -59,14 +59,14 @@ public:
 
 	T			&operator[]( std::size_t idx ) {
 
-			if (idx >= this->_size)
+			if ( idx >= this->_size )
 				throw std::exception();
 			else
 			return this->_head[ idx ];
 	}
 	T const		&operator[]( std::size_t idx ) const {
 
-			if (idx >= this->_size)
+			if ( idx >= this->_size )
 				throw std::exception();
 			else
 				return this->_head[ idx ];
