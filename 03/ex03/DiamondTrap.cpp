@@ -6,9 +6,13 @@ DiamondTrap::DiamondTrap( void ) {
 	return ;
 }
 
-DiamondTrap::DiamondTrap( DiamondTrap const &src ) {
+DiamondTrap::DiamondTrap( DiamondTrap const &src ) : _name( src.getName() ) {
 
 	std::cout << "Copy DiamondTrap constructor called" << std::endl;
+	ClapTrap::_name = src.getName() + "_clap_name";
+	FragTrap::_hitPoints = src.getHitPoints();
+	ScavTrap::_energyPoints = src.getEnergyPoints();
+	FragTrap::_attackDamage = src.getAttackDamage();
 	*this = src;
 	return ;
 }
