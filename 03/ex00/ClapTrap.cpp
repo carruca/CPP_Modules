@@ -12,7 +12,7 @@ ClapTrap::ClapTrap( std::string name ) : _name( name ), _hitPoints( 10 ), _energ
 	return ;
 }
 
-ClapTrap::ClapTrap( ClapTrap const &src ) {
+ClapTrap::ClapTrap( ClapTrap const &src ) : _name( src.getName() ), _hitPoints( src.getHitPoints() ), _energyPoints( src.getEnergyPoints() ), _attackDamage( src.getAttackDamage() ) {
 
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;

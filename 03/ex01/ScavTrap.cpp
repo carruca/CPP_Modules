@@ -6,7 +6,7 @@ ScavTrap::ScavTrap( void ) {
 	return ;
 }
 
-ScavTrap::ScavTrap( ScavTrap const &src ) {
+ScavTrap::ScavTrap( ScavTrap const &src ) : ClapTrap( src ) {
 
 	std::cout << "Copy ScavTrap constructor called" << std::endl;
 	*this = src;

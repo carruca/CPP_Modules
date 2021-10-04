@@ -6,7 +6,7 @@ FragTrap::FragTrap( void ) {
 	return ;
 }
 
-FragTrap::FragTrap( FragTrap const &src ) {
+FragTrap::FragTrap( FragTrap const &src ) : ClapTrap( src ) {
 
 	std::cout << "Copy FragTrap constructor called" << std::endl;
 	*this = src;

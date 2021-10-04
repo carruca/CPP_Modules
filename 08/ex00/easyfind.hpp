@@ -11,7 +11,7 @@ public:
 	virtual const char	*what() const throw() {
 
 		return "not found";
-	};
+	}
 };
 
 template< typename T >
