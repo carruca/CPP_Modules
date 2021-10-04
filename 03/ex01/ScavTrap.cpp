@@ -2,13 +2,21 @@
 
 ScavTrap::ScavTrap( void ) {
 
+	this->_name = "Default";
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 	std::cout << "Default ScavTrap constructor called" << std::endl;
 	return ;
 }
 
-ScavTrap::ScavTrap( ScavTrap const &src ) : ClapTrap( src ) {
+ScavTrap::ScavTrap( ScavTrap const &src ) {
 
 	std::cout << "Copy ScavTrap constructor called" << std::endl;
+	this->_name = src.getName();
+	this->_hitPoints = src.getHitPoints();
+	this->_energyPoints = src.getEnergyPoints();
+	this->_attackDamage = src.getAttackDamage();
 	*this = src;
 	return ;
 }

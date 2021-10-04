@@ -2,13 +2,21 @@
 
 FragTrap::FragTrap( void ) {
 
+	this->_name = "Default";
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 	std::cout << "Default FragTrap constructor called" << std::endl;
 	return ;
 }
 
-FragTrap::FragTrap( FragTrap const &src ) : ClapTrap( src ) {
+FragTrap::FragTrap( FragTrap const &src ) {
 
 	std::cout << "Copy FragTrap constructor called" << std::endl;
+	this->_name = src.getName();
+	this->_hitPoints = src.getHitPoints();
+	this->_energyPoints = src.getEnergyPoints();
+	this->_attackDamage = src.getAttackDamage();
 	*this = src;
 	return ;
 }
