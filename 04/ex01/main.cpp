@@ -10,11 +10,10 @@ void	leaks_check( void ) {
 
 int	main( void ) {
 
-	int		N = 5;
+	int		N = 2;
 	Animal	*ptrArray[N];
 
 	
-//	atexit( leaks_check );
 	for (int i = 0; i < N; i++) {
 
 		if (i % 2 == 0)
@@ -25,5 +24,7 @@ int	main( void ) {
 
 	for (int i = 0; i < N; i++)
 		delete ptrArray[i];
+
+//	atexit( leaks_check );
 	return 0;
 }
