@@ -10,14 +10,8 @@ MateriaSource::MateriaSource( void ) {
 MateriaSource::MateriaSource( MateriaSource const &src ) {
 
 	std::cout << "Copy MateriaSource constructor called" << std::endl;
-	for (int i = 0; i < 4; i++) {
-
-		if (this->source[i]) {
-
-			delete this->source[i];
+	for (int i = 0; i < 4; i++)
 			this->source[i] = src.source[i]->clone();
-		}
-	}
 	*this = src;
 	return ;
 }
@@ -38,6 +32,14 @@ MateriaSource	&MateriaSource::operator=( MateriaSource const &rhs ) {
 	std::cout << "Assignment AMateria operator called" << std::endl;
 	if (this == &rhs)
 		return *this;
+	for (int i = 0; i < 4; i++) {
+
+		if (this->source[i]) {
+
+			delete this->source[i];
+			this->source[i] = rhs.source[i]->clone();
+		}
+	}
 	return *this;
 }
 

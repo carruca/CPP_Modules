@@ -13,7 +13,7 @@ Ice::Ice( std::string const &type ) : AMateria( type ) {
 	return ;
 }
 
-Ice::Ice( Ice const &src ) {
+Ice::Ice( Ice const &src ) : AMateria( src.getType() ) {
 
 	*this = src;
 	std::cout << "Copy Ice constructor called" << std::endl;

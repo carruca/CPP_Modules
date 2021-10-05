@@ -12,7 +12,7 @@ AMateria::AMateria( std::string const &type ) : type( type ) {
 	return ;
 }
 
-AMateria::AMateria( AMateria const &src ) {
+AMateria::AMateria( AMateria const &src ) : type( src.getType() ) {
 
 	*this = src;
 	std::cout << "Copy AMateria constructor called" << std::endl;
