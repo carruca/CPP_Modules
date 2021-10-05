@@ -10,6 +10,7 @@ Cat::Cat( void ) {
 Cat::Cat( Cat const &src ) {
 
 	*this = src;
+	this->type = src.type;
 	std::cout << "Copy Cat constructor called" << std::endl;
 	return ;
 }

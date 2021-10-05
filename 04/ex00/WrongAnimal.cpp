@@ -10,6 +10,7 @@ WrongAnimal::WrongAnimal( void ) {
 WrongAnimal::WrongAnimal( WrongAnimal const &src ) {
 
 	*this = src;
+	this->type = src.type;
 	std::cout << "Copy WrongAnimal constructor called" << std::endl;
 	return ;
 }

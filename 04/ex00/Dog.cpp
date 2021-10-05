@@ -10,6 +10,7 @@ Dog::Dog( void ) {
 Dog::Dog( Dog const &src ) {
 
 	*this = src;
+	this->type = src.type;
 	std::cout << "Copy Dog constructor called" << std::endl;
 	return ;
 }

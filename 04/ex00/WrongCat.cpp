@@ -10,6 +10,7 @@ WrongCat::WrongCat( void ) {
 WrongCat::WrongCat( WrongCat const &src ) {
 
 	*this = src;
+	this->type = src.type;
 	std::cout << "Copy WrongCat constructor called" << std::endl;
 	return ;
 }
