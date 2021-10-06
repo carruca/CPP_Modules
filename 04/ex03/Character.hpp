@@ -22,6 +22,7 @@ public:
 	Character	&operator=( Character const &rhs );
 
 	std::string const	&getName( void ) const;
+
 	void				equip( AMateria *m );
 	void				unequip( int idx );
 	void				use( int idx, ICharacter &target );

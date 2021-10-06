@@ -19,7 +19,7 @@ Dog::Dog( Dog const &src ) {
 Dog::~Dog( void ) {
 
 	std::cout << "Default Dog destructor called" << std::endl;
-	delete _brain;
+	delete this->_brain;
 	return ;
 }
 

@@ -6,13 +6,6 @@ Cure::Cure( void ) : AMateria( "cure" ) {
 	return ;
 }
 
-
-Cure::Cure( std::string const &type ) : AMateria( type ) {
-
-	std::cout << "Parameter Cure constructor called" << std::endl;
-	return ;
-}
-
 Cure::Cure( Cure const &src ) : AMateria( src.getType() ) {
 
 	*this = src;
@@ -31,6 +24,7 @@ Cure	&Cure::operator=( Cure const &rhs ) {
 	std::cout << "Assignment Cure operator called" << std::endl;
 	if (this == &rhs)
 		return *this;
+	this->AMateria::type = rhs.getType();
 	return *this;
 }
 

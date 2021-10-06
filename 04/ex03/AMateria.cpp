@@ -29,6 +29,7 @@ AMateria	&AMateria::operator=( AMateria const &rhs ) {
 
 	if (this == &rhs)
 		return *this;
+	this->type = rhs.getType();
 	std::cout << "Assignment AMateria operator called" << std::endl;
 	return *this;
 }
@@ -40,6 +41,6 @@ std::string const	&AMateria::getType( void ) const {
 
 void	AMateria::use( ICharacter &target ) {
 
-	std::cout << "* "<< target.getName() << " *" << std::endl;
+	std::cout << "* uses some " << this->type << " against " << target.getName() << " *" << std::endl;
 	return ;
 }

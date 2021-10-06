@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-Character::Character( void ) : name( "Default" ){
+Character::Character( void ) : name( "Default" ) {
 
 	std::cout << "Default Character constructor called" << std::endl;
 	bzero( this->inventory, sizeof(AMateria) );
@@ -42,11 +42,9 @@ Character	&Character::operator=( Character const &rhs ) {
 	this->name = rhs.getName();
 	for (int i = 0; i < 4; i++) {
 
-		if (this->inventory[i]) {
-
+		if (this->inventory[i])
 			delete this->inventory[i];
-			this->inventory[i] = rhs.inventory[i]->clone();
-		}
+		this->inventory[i] = rhs.inventory[i]->clone();
 	}
 	return *this;
 }
@@ -71,14 +69,14 @@ void	Character::equip( AMateria *m ) {
 
 void	Character::unequip( int idx ) {
 
-	if (this->inventory[idx])
+	if ( idx < 4 && idx >= 0 && this->inventory[idx] )
 		this->inventory[idx] = NULL;
 	return ;
 }
 
 void	Character::use( int idx, ICharacter &target ) {
 
-	if (this->inventory[idx])
+	if ( idx < 4 && idx >= 0 && this->inventory[idx])
 		this->inventory[idx]->use( target );
 	return ;
 }

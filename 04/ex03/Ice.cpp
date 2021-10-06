@@ -6,13 +6,6 @@ Ice::Ice( void ) : AMateria( "ice" ){
 	return ;
 }
 
-
-Ice::Ice( std::string const &type ) : AMateria( type ) {
-
-	std::cout << "Parameter Ice constructor called" << std::endl;
-	return ;
-}
-
 Ice::Ice( Ice const &src ) : AMateria( src.getType() ) {
 
 	*this = src;
@@ -31,6 +24,7 @@ Ice	&Ice::operator=( Ice const &rhs ) {
 	std::cout << "Assignment Ice operator called" << std::endl;
 	if (this == &rhs)
 		return *this;
+	this->type = rhs.getType();
 	return *this;
 }
 

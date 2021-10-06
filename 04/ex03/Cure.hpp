@@ -10,7 +10,6 @@ class	Cure : public AMateria {
 public:
 
 	Cure( void );
-	Cure( std::string const &type );
 	Cure( Cure const &src );
 	~Cure( void );
 

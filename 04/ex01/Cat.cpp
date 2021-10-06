@@ -19,7 +19,7 @@ Cat::Cat( Cat const &src ) {
 Cat::~Cat( void ) {
 
 	std::cout << "Default Cat destructor called" << std::endl;
-	delete _brain;
+	delete this->_brain;
 	return ;
 }
 
