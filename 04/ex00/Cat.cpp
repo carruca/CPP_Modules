@@ -2,7 +2,7 @@
 
 Cat::Cat( void ) {
 
-	Animal::type = "Cat";
+	this->Animal::type = "Cat";
 	std::cout << "Default Cat constructor called" << std::endl;
 	return ;
 }
