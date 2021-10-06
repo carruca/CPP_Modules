@@ -75,7 +75,7 @@ void	Form::execute( Bureaucrat const &executor ) const {
 	if (!this->_signed) {
 
 		std::cout << executor.getName() << " cannot execute " << this->getName() << " because ";
-		throw Form::AlreadySignedFormException();
+		throw Form::FormNotSignedException();
 	}
 	else if (executor.getGrade() > this->_executeGrade) {
 
@@ -87,7 +87,7 @@ void	Form::execute( Bureaucrat const &executor ) const {
 	return ;
 }
 
-const char	*Form::AlreadySignedFormException::what() const throw() {
+const char	*Form::FormNotSignedException::what() const throw() {
 
 	return "form is not signed.";
 }

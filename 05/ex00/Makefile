@@ -8,7 +8,7 @@ INC = -I.
 
 COMMON = 
 LDFLAGS = $(COMMON)
-CXXFLAGS = -Wall -Wextra -Werror -Wshadow $(INC) $(COMMON)
+CXXFLAGS = -Wall -Wextra -Werror $(INC) $(COMMON)
 CXX = clang++
 
 DEBUG = -g3

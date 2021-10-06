@@ -36,7 +36,7 @@ public:
 	virtual void		actionExecute( void ) const = 0;
 	void				execute( Bureaucrat const &executor ) const;
 
-	class	AlreadySignedFormException : public std::exception {
+	class	FormNotSignedException : public std::exception {
 
 	public:
 		

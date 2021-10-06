@@ -27,7 +27,7 @@ int	main( void ) {
 
 		home.execute( bob );
 	}
-	catch (Form::AlreadySignedFormException &e) {
+	catch (Form::FormNotSignedException &e) {
 
 		std::cout << e.what() << std::endl;
 	}
@@ -48,7 +48,7 @@ int	main( void ) {
 
 		campus.execute( bob );
 	}
-	catch (Form::AlreadySignedFormException &e) {
+	catch (Form::FormNotSignedException &e) {
 
 		std::cout << e.what() << std::endl;
 	}
