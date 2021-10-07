@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat( unsigned int grade ) : _name( "bob" ) {
 	return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const &src ) {
+Bureaucrat::Bureaucrat( Bureaucrat const &src ) : _name( src.getName() ), _grade( src.getGrade() ) {
 
 	std::cout << "Copy Bureaucrat constructor called" << std::endl;
 	*this = src;
@@ -35,6 +35,7 @@ Bureaucrat	&Bureaucrat::operator=( Bureaucrat const &rhs ) {
 	std::cout << "Assignment Bureaucrat operator called" << std::endl;
 	if (this == &rhs)
 		return *this;
+	this->_grade = rhs.getGrade();
 	return *this;
 }
 

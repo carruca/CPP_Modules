@@ -35,6 +35,7 @@ Bureaucrat	&Bureaucrat::operator=( Bureaucrat const &rhs ) {
 	std::cout << "Assignment Bureaucrat operator called" << std::endl;
 	if (this == &rhs)
 		return *this;
+	this->_grade = rhs.getGrade();
 	return *this;
 }
 

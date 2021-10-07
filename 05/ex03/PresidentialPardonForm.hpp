@@ -12,7 +12,10 @@ public:
 
 	PresidentialPardonForm( void );
 	PresidentialPardonForm( std::string target );
+	PresidentialPardonForm( PresidentialPardonForm const &src );
 	~PresidentialPardonForm( void );
+
+	PresidentialPardonForm	&operator=( PresidentialPardonForm const &rhs );
 
 	void	actionExecute( void ) const;
 };

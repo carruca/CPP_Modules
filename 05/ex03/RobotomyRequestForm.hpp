@@ -12,7 +12,10 @@ public:
 
 	RobotomyRequestForm( void );
 	RobotomyRequestForm( std::string target );
+	RobotomyRequestForm( RobotomyRequestForm const &src );
 	~RobotomyRequestForm( void );
+
+	RobotomyRequestForm		&operator=( RobotomyRequestForm const &rhs );
 
 	void	actionExecute( void ) const;
 };

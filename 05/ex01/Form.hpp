@@ -20,6 +20,7 @@ public:
 
 	Form( void );
 	Form( std::string name, unsigned int signGrade, unsigned int executeGrade );
+	Form( Form const &src );
 	~Form( void );
 
 	Form	&operator=( Form const &rhs );

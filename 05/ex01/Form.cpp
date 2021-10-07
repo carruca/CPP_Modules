@@ -16,6 +16,12 @@ Form::Form( std::string name, unsigned int signGrade, unsigned int executeGrade 
 	return ;
 }
 
+Form::Form( Form const &src ) : _name( src.getName() ), _signed( src.getSigned() ), _signGrade( src.getSignGrade() ), _executeGrade( src.getExecuteGrade() ) {
+
+	std::cout << "Copy Form constructor called" << std::endl;
+	return ;
+}
+
 Form::~Form( void ) {
 
 	std::cout << "Default Form destructor called" << std::endl;

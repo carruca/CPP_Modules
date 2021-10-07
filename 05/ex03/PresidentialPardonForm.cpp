@@ -12,10 +12,25 @@ PresidentialPardonForm::PresidentialPardonForm( std::string target ) : Form( "pr
 	return ;
 }
 
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const &src ) : Form( src.getName(), src.getSignGrade(), src.getExecuteGrade(), src.getTarget() ) {
+
+	std::cout << "Copy PresidentialPardonForm constructor called" << std::endl;
+	*this = src;
+	return ;
+}
+
 PresidentialPardonForm::~PresidentialPardonForm( void ) {
 
 	std::cout << "Default PresidentialPardonForm destructor called" << std::endl;
 	return ;
+}
+
+PresidentialPardonForm	&PresidentialPardonForm::operator=( PresidentialPardonForm const &rhs ) {
+
+	std::cout << "Assignment PresidentialPardonForm operator called" << std::endl;
+	if ( this == &rhs )
+		return *this;
+	return *this;
 }
 
 void	PresidentialPardonForm::actionExecute( void ) const {

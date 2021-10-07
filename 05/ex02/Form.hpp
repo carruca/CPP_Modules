@@ -21,6 +21,7 @@ public:
 
 	Form( void );
 	Form( std::string name, unsigned int signGrade, unsigned int executeGrade, std::string target );
+	Form( Form const &src );
 	virtual	~Form( void );
 
 	Form	&operator=( Form const &rhs );

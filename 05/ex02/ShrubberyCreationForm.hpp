@@ -12,7 +12,10 @@ public:
 
 	ShrubberyCreationForm( void );
 	ShrubberyCreationForm( std::string target );
+	ShrubberyCreationForm( ShrubberyCreationForm const &src );
 	~ShrubberyCreationForm( void );
+
+	ShrubberyCreationForm	&operator=( ShrubberyCreationForm const &rhs );
 
 	void	actionExecute( void ) const;
 };

@@ -12,6 +12,12 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : Form( "shru
 	return ;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const &src ) : Form( src.getName(), src.getSignGrade(), src.getExecuteGrade(), src.getTarget() ) {
+
+	std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
+	return ;
+}
+
 ShrubberyCreationForm::~ShrubberyCreationForm( void ) {
 
 	std::cout << "Default ShrubberyCreationForm destructor called" << std::endl;
