@@ -5,7 +5,7 @@ Point::Point( void ) : _x( 0 ), _y( 0 ) {
 	return ;
 }
 
-Point::Point( Point const &src ) {
+Point::Point( Point const &src ) : _x( src.getX() ), _y( src.getY() ) {
 
 	*this = src;
 	return ;
