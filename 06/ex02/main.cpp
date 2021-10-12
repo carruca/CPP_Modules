@@ -10,12 +10,21 @@ Base	*generate( void ) {
 
 	srand( time( NULL ) );
 	randomNb = rand() % 3;
-	if ( randomNb == 0 )
+	if ( randomNb == 0 ) {
+
+		std::cout << "A instance" << std::endl;
 		return new A;
-	else if ( randomNb == 1 )
+	}
+	else if ( randomNb == 1 ) {
+
+		std::cout << "B instance" << std::endl;
 		return new B;
-	else
+	}
+	else {
+
+		std::cout << "C instance" << std::endl;
 		return new C;
+	}
 }
 
 void	identify( Base *p ) {
@@ -25,11 +34,11 @@ void	identify( Base *p ) {
 	C	*cPtr = dynamic_cast<C *>(p);
 
 	if ( aPtr )
-		std::cout << "A" << std::endl;
+		std::cout << "A pointer" << std::endl;
 	else if ( bPtr )
-		std::cout << "B" << std::endl;
+		std::cout << "B pointer" << std::endl;
 	else if ( cPtr )
-		std::cout << "C" << std::endl;
+		std::cout << "C pointer" << std::endl;
 	return ;
 }
 
@@ -39,7 +48,7 @@ void	identify( Base &p ) {
 
 		A	&a = dynamic_cast<A &>(p);
 		(void)a;
-		std::cout << "A" << std::endl;
+		std::cout << "A reference" << std::endl;
 		return ;
 	}
 	catch ( std::bad_cast &e ) {}
@@ -47,7 +56,7 @@ void	identify( Base &p ) {
 
 		B	&b = dynamic_cast<B &>(p);
 		(void)b;
-		std::cout << "B" << std::endl;
+		std::cout << "B reference" << std::endl;
 		return ;
 	}
 	catch ( std::bad_cast &e ) {}
@@ -55,7 +64,7 @@ void	identify( Base &p ) {
 
 		C	&c = dynamic_cast<C &>(p);
 		(void)c;
-		std::cout << "C" << std::endl;
+		std::cout << "C reference" << std::endl;
 		return ;
 	}
 	catch ( std::bad_cast &e ) {}
