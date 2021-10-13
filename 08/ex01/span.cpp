@@ -1,6 +1,6 @@
 #include "span.hpp"
 
-Span::Span( unsigned int N ) _size( N ) {
+Span::Span( unsigned int N ) : _size( N ) {
 
 	return ;
 }
@@ -29,6 +29,16 @@ void	Span::addNumber( unsigned int nb ) {
 		throw ;	
 	this->_container.push_back( nb );
 	return ;
+}
+
+int const	&Span::shortestSpan( void ) const {
+
+	return this->_container[0];
+}
+
+int const	&Span::longestSpan( void ) const {
+
+	return this->_container[0];
 }
 
 const char	*Span::FullContainerException::what() const throw() {

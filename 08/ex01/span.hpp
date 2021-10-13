@@ -15,8 +15,8 @@ public:
 
 	void	addNumber( unsigned int nb );
 
-//	int const	&shortestSpan( void ) const;
-//	int	const	&longestSpan( void ) const;
+	int const	&shortestSpan( void ) const;
+	int const	&longestSpan( void ) const;
 
 	class FullContainerException : public std::exception {
 
@@ -27,8 +27,8 @@ public:
 
 private:
 
-	unsigned int	_size;
-	vector<int>		_container;
+	unsigned int		_size;
+	std::vector<int>	_container;
 
 	Span( void );
 };
