@@ -9,7 +9,7 @@ class	MutantStack : public std::stack<T> {
 public:
 
 	MutantStack( void ) { }
-	MutantStack( MutantStack const &src ) {
+	MutantStack( MutantStack const &src ) : std::stack<T>( src ) {
 
 		*this = src;
 		return ;
@@ -20,6 +20,7 @@ public:
 
 		if ( this == &rhs )
 			return *this;
+		std::stack<T>::operator=( rhs );
 		return *this;
 	}
 
