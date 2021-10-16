@@ -2,6 +2,8 @@
 # define SPAN_HPP
 
 # include <vector>
+# include <algorithm>
+# include <iterator>
 
 class	Span {
 
@@ -13,12 +15,23 @@ public:
 
 	Span	&operator=( Span const &rhs );
 
-	void	addNumber( unsigned int nb );
+	size_t const			&getSize( void ) const;
+	std::vector<int> const	&getContainer( void ) const;
 
-	int const	&shortestSpan( void ) const;
-	int const	&longestSpan( void ) const;
+	void	addNumber( int nb );
+	void	addNumber( std::vector<int> v );
 
-	class FullContainerException : public std::exception {
+	unsigned int	shortestSpan( void );
+	unsigned int	longestSpan( void );
+
+	class FullSizeException : public std::exception {
+
+	public:
+
+		virtual const char	*what() const throw();
+	};
+
+	class SizeTooLowException : public std::exception {
 
 	public:
 
@@ -27,8 +40,8 @@ public:
 
 private:
 
-	unsigned int		_size;
-	std::vector<int>	_container;
+	size_t				_size;
+	std::vector<int>	_vcontainer;
 
 	Span( void );
 };
