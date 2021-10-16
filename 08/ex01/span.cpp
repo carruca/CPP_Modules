@@ -1,4 +1,4 @@
-#include "span.hpp"
+#include "Span.hpp"
 #include <iostream>
 
 Span::Span( unsigned int N ) : _size( N ) {
