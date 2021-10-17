@@ -8,6 +8,8 @@ class	MutantStack : public std::stack<T> {
 
 public:
 
+	typedef typename std::stack<T>::container_type::iterator	iterator;
+
 	MutantStack( void ) { }
 	MutantStack( MutantStack const &src ) : std::stack<T>( src ) {
 
@@ -20,20 +22,18 @@ public:
 
 		if ( this == &rhs )
 			return *this;
-		std::stack<T>::operator=( rhs );
+		this->std::stack<T>::operator=( rhs );
 		return *this;
 	}
 
-	typedef typename std::stack<T>::container_type::iterator	iterator;
-
 	iterator	begin( void ) {
 
-		return this->c.begin();
+		return this->std::stack<T>::c.begin();
 	}
 
 	iterator	end( void ) {
 
-		return this->c.end();
+		return this->std::stack<T>::c.end();
 	}
 };
 
