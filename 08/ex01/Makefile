@@ -1,7 +1,7 @@
 NAME		= ex01
 
 SRC			= main.cpp \
-			  Span.cpp
+			  span.cpp
 
 OBJ			= $(SRC:.cpp=.o)
 INC			= -I.
