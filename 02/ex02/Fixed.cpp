@@ -61,44 +61,32 @@ int	Fixed::toInt( void ) const {
 
 bool	Fixed::operator>( Fixed const &rhs ) const {
 
-	if (this->_rawBits > rhs.getRawBits())
-		return 1;
-	return 0;
+	return this->_rawBits > rhs.getRawBits();
 }
 
 bool	Fixed::operator<( Fixed const &rhs ) const {
 
-	if (this->_rawBits < rhs.getRawBits())
-		return 1;
-	return 0;
+	return this->_rawBits < rhs.getRawBits();
 }
 
 bool	Fixed::operator>=( Fixed const &rhs ) const {
 
-	if (this->_rawBits >= rhs.getRawBits())
-		return 1;
-	return 0;
+	return this->_rawBits >= rhs.getRawBits();
 }
 
 bool	Fixed::operator<=( Fixed const &rhs ) const {
 
-	if (this->_rawBits <= rhs.getRawBits())
-		return 1;
-	return 0;
+	return this->_rawBits <= rhs.getRawBits();
 }
 
 bool	Fixed::operator==( Fixed const &rhs ) const {
 
-	if (this->_rawBits == rhs.getRawBits())
-		return 1;
-	return 0;
+	return this->_rawBits == rhs.getRawBits();
 }
 
 bool	Fixed::operator!=( Fixed const &rhs ) const {
 
-	if (this->_rawBits != rhs.getRawBits())
-		return 1;
-	return 0;
+	return this->_rawBits != rhs.getRawBits();
 }
 
 Fixed	Fixed::operator+( Fixed const &rhs ) const {
