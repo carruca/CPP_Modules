@@ -1,16 +1,17 @@
 #include "Character.hpp"
+#include <cstring>
 
 Character::Character( void ) : name( "Default" ) {
 
 	std::cout << "Default Character constructor called" << std::endl;
-	bzero( this->inventory, sizeof(AMateria) );
+	std::memset( this->inventory, 0, sizeof(AMateria *) * 4 );
 	return ;
 }
 
 Character::Character( std::string const &name ) : name( name ) {
 
 	std::cout << "Parameter Character constructor called" << std::endl;
-	bzero( this->inventory, sizeof(AMateria) );
+	std::memset( this->inventory, 0, sizeof(AMateria *) * 4 );
 	return ;
 }
 

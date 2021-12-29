@@ -1,9 +1,10 @@
 #include "MateriaSource.hpp"
+#include <cstring>
 
 MateriaSource::MateriaSource( void ) {
 
 	std::cout << "Default MateriaSource constructor called" << std::endl;
-	bzero( this->source, sizeof(AMateria) );
+	std::memset( this->source, 0, sizeof(AMateria *) * 4 );
 	return ;
 }
 
